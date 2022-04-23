@@ -18,14 +18,14 @@ function App() {
 		{
 			id: "e4",
 			title: "New Desk (Wooden)",
-			amount: 452.58,
+			amount: 482.58,
 			date: new Date(2021, 5, 12)
 		}
 	];
 
 	return (
 		<div>
-			<h2>Expenses Tracker</h2>
+			<h2>Expense Tracker</h2>
 			<Expenses expenses={expenses} />
 		</div>
 	);
