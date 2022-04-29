@@ -7,6 +7,7 @@ const ExpenseForm = (props) => {
 	const [enteredDate, setEnteredDate] = useState(""); //method 1
 
 	// or this method below
+	// or this method below
 
 	//useState must be an object here
 	// const [userInput, setUserInput] = useState({
