@@ -4,6 +4,7 @@ function ExpenseDate(props) {
 
 	console.log("expense date test");
 	console.log("expense date test");
+	console.log("expense date test");
 	const month = props.date.toLocaleString("en-us", { month: "long" });
 	const day = props.date.toLocaleString("en-us", { day: "2-digit" });
 	const year = props.date.getFullYear();
