@@ -23,6 +23,19 @@ const Expenses = (props) => {
 	//usually we do not know how many items we will have so instead we can dynamically  use map which creates a new array..transforms every item from the original array
 
 	//always add a key when mapping items
+
+	let expensesContent = <p>No expenses found.</p>;
+
+	if (filteredExpenses.length > 0) {
+		expensesContent = filteredExpenses.map((expenses) => (
+			<ExpenseItem
+				key={expenses.id}
+				title={expenses.title}
+				amount={expenses.amount}
+				date={expenses.date}
+			/>
+		));
+	}
 	return (
 		<div>
 			<Card className="expenses">
@@ -30,49 +43,7 @@ const Expenses = (props) => {
 					selected={filteredYear}
 					onChangeFilter={filterChangeHandler}
 				/>
-				{filteredExpenses.length === 0 && <p>No expenses found.</p>}
-				{filteredExpenses.length > 0 &&
-					filteredExpenses.map((expenses) => (
-						<ExpenseItem
-							key={expenses.id}
-							title={expenses.title}
-							amount={expenses.amount}
-							date={expenses.date}
-						/>
-					))}
-				;
-				{/* {filteredExpenses.length === 0 ? (
-					<p>No expenses found.</p>
-				) : (
-					filteredExpenses.map((expenses) => (
-						<ExpenseItem
-							key={expenses.id}
-							title={expenses.title}
-							amount={expenses.amount}
-							date={expenses.date}
-						/>
-					))
-				)} */}
-				{/* <ExpenseItem
-					title={props.expenses[0].title} // THESE ARE FROM APP.JS (expenses)
-					amount={props.expenses[0].amount}
-					date={props.expenses[0].date}
-				></ExpenseItem>
-				<ExpenseItem
-					title={props.expenses[1].title}
-					amount={props.expenses[1].amount}
-					date={props.expenses[1].date}
-				></ExpenseItem>
-				<ExpenseItem
-					title={props.expenses[2].title}
-					amount={props.expenses[2].amount}
-					date={props.expenses[2].date}
-				></ExpenseItem>
-				<ExpenseItem
-					title={props.expenses[3].title}
-					amount={props.expenses[3].amount}
-					date={props.expenses[3].date}
-				></ExpenseItem> */}
+				{expensesContent}
 			</Card>
 		</div>
 	);
