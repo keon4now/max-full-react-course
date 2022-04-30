@@ -1,21 +1,22 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
 
 import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
-// import ExpenseFilter from "./ExpenseFilter";
+import ExpenseFilter from "./ExpenseFilter";
 import "./Expenses.css";
 
 const Expenses = (props) => {
-	// const [filteredYear, setFilteredYear] = useState('2020');
+	const [filteredYear, setFilteredYear] = useState('2020');
 
-	// const filterChangeHandler = yearWeSelect => {
-	// 	setFilteredYear(yearWeSelect);
+	const filterChangeHandler = yearWeSelect => {
+		setFilteredYear(yearWeSelect);
+	};
 
 	//selected below would be two way binding
 	return (
 		<div>
 			<Card className="expenses">
-				{/* <ExpenseFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/> */}
+				<ExpenseFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
 				<ExpenseItem
 					title={props.expenses[0].title} // THESE ARE FROM APP.JS (expenses)
 					amount={props.expenses[0].amount}
@@ -40,5 +41,7 @@ const Expenses = (props) => {
 		</div>
 	);
 };
+
+
 
 export default Expenses;
