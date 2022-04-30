@@ -8,34 +8,51 @@ import "./Expenses.css";
 //smart / stateful component ...we can spread out and use as props
 
 const Expenses = (props) => {
-	const [filteredYear, setFilteredYear] = useState('2020');
+	const [filteredYear, setFilteredYear] = useState("2020");
 
-	const filterChangeHandler = yearWeSelect => {
-		setFilteredYear(yearWeSelect);
+	const filterChangeHandler = (selectedYear) => {
+		setFilteredYear(selectedYear);
 	};
+
+	const filteredExpenses = props.expenses.filter((expense) => {
+		return expense.date.getFullYear().toString() === filteredYear;
+	});
 
 	//selected below would be two way binding...we created a controlled component...expenseFilter is now a controlled component has it handles the value and its changes which is sent to expense filter
 
+	//usually we do not know how many items we will have so instead we can dynamically  use map which creates a new array..transforms every item from the original array
 
-	//usually we do not know how many items we will have so instead we can dynamically  use map which creates a new array..transforms every item from the original array 
+	//always add a key when mapping items
 	return (
 		<div>
 			<Card className="expenses">
-				<ExpenseFilter 
-					selected={filteredYear} 
+				<ExpenseFilter
+					selected={filteredYear}
 					onChangeFilter={filterChangeHandler}
-					/>
-				{props.expenses.map((expenses => 
-					<ExpenseItem  
-						title={expenses.title}
-						amount={expenses.amount}
-						date={expenses.date}
+				/>
+				{filteredExpenses.length === 0 && <p>No expenses found.</p>}
+				{filteredExpenses.length > 0 &&
+					filteredExpenses.map((expenses) => (
+						<ExpenseItem
+							key={expenses.id}
+							title={expenses.title}
+							amount={expenses.amount}
+							date={expenses.date}
 						/>
-						))}
-		
-				
-
-
+					))}
+				;
+				{/* {filteredExpenses.length === 0 ? (
+					<p>No expenses found.</p>
+				) : (
+					filteredExpenses.map((expenses) => (
+						<ExpenseItem
+							key={expenses.id}
+							title={expenses.title}
+							amount={expenses.amount}
+							date={expenses.date}
+						/>
+					))
+				)} */}
 				{/* <ExpenseItem
 					title={props.expenses[0].title} // THESE ARE FROM APP.JS (expenses)
 					amount={props.expenses[0].amount}
