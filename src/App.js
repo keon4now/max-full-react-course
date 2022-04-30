@@ -33,7 +33,9 @@ const App = () => {
 
 	//WE ALWAYS NEED A ROOT ELEMENT
 	return (
-		//remember we can name the prop what ever
+		//remember we can name the prop what ever...
+
+		//expenses prop points to the array we will dynamically map in the expenses component
 		<div>
 			<NewExpense onAddExpense={addExpenseHandler} />
 			<Expenses expenses={expenses} />
@@ -55,6 +57,6 @@ const App = () => {
 	// 	React.createElement("h2", {}, "Let's get started!"),
 	// 	React.createElement(Expenses, { expenses: expenses })
 	// );
-};;
+};
 
 export default App;
