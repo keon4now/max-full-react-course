@@ -1,8 +1,4 @@
-ug
-
-
-
-
-
-
 node_modules
+"start": "react-scripts --openssl-legacy-provider start",
+
+

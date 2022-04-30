@@ -12,7 +12,7 @@ const Expenses = (props) => {
 		setFilteredYear(yearWeSelect);
 	};
 
-	//selected below would be two way binding
+	//selected below would be two way binding...we created a controlled component...expenseFilter is now a controlled component has it handles the value and its changes which is sent to expense filter
 	return (
 		<div>
 			<Card className="expenses">
