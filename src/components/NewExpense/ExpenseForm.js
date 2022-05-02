@@ -88,6 +88,7 @@ const ExpenseForm = (props) => {
 		//when a button with submit is placed inside a form the form element will emit and event to which we can listen so we want to add function to that
 
 		// 2way binding - we listen and then change the input programmatically ...all we do is set a value attribute....very important when working with forms
+
 		<form onSubmit={submitHandler}>
 			<div className="new-expense__controls">
 				<div className="new-expense__control">
@@ -118,6 +119,7 @@ const ExpenseForm = (props) => {
 						onChange={dateChangeHandler}
 					/>
 				</div>
+				<button type="submit">Cancel</button>
 				<button type="submit">Add Expense</button>
 			</div>
 		</form>
