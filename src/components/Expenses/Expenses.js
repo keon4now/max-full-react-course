@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import ExpenseList from "./ExpenseList";
 import Card from "../UI/Card";
 import ExpenseFilter from "./ExpenseFilter";
+import ExpenseChart from "./ExpenseChart";
 import "./Expenses.css";
 
 //smart / stateful component ...we can spread out and use as props
@@ -32,6 +33,7 @@ const Expenses = (props) => {
 					selected={filteredYear}
 					onChangeFilter={filterChangeHandler}
 				/>
+				<ExpenseChart  expenses={filteredExpenses} />
 				<ExpenseList expenses={filteredExpenses} />
 			</Card>
 		</div>
